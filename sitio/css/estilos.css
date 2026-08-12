@@ -40,8 +40,8 @@ h1,h2,h3{text-wrap:balance}
   padding:16px 30px;font-weight:700;font-size:15px;border:none;cursor:pointer;font-family:var(--sans)}
 .btn-violeta:hover{background:var(--violeta-osc)}
 .btn-crudo{display:inline-block;background:var(--crudo);color:var(--violeta-osc);text-decoration:none;
-  padding:16px 30px;font-weight:700;font-size:15px;margin-top:28px}
-.btn-crudo:hover{background:var(--arena)}
+  padding:16px 32px;font-weight:700;font-size:15px;margin-top:28px;border-radius:99px}
+.btn-crudo:hover{background:var(--senal);color:var(--noche)}
 
 /* ── Navegación ── */
 .nav{position:fixed;inset:0 0 auto;display:flex;justify-content:space-between;align-items:center;
@@ -139,8 +139,6 @@ h3{font-family:var(--serif);font-weight:600;font-size:23px}
   line-height:1.02;opacity:1;letter-spacing:-.015em;color:var(--senal)}
 .reclamo-txt p{margin-top:18px;opacity:.92;max-width:50ch}
 .reclamo-txt strong{border-bottom:2px solid var(--crudo)}
-.chips{list-style:none;display:flex;gap:10px;margin-top:24px;flex-wrap:wrap}
-.chips li{font-family:var(--mono);font-size:12.5px;border:1px solid rgba(250,246,239,.5);padding:6px 13px;border-radius:99px}
 /* Panel: collage de fotos reales + cinta de obra + faja */
 .reclamo-panel{position:relative;min-height:520px;display:flex;flex-direction:column;
   justify-content:center;align-items:center;overflow:hidden;background:var(--noche)}

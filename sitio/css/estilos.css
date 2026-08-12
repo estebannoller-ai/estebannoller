@@ -79,6 +79,9 @@ h1,h2,h3{text-wrap:balance}
 .hamburguesa{display:none;background:none;border:0;cursor:pointer;padding:8px}
 .hamburguesa span{display:block;width:24px;height:2.5px;background:var(--crudo);margin:5px 0;transition:background .2s}
 .nav.compacta .hamburguesa span{background:var(--tinta)}
+/* Con el menú desplegado el fondo es oscuro: el botón vuelve a ser claro */
+.nav:has(nav.abierto) .hamburguesa span,
+.nav.compacta:has(nav.abierto) .hamburguesa span{background:var(--crudo)}
 
 /* ── Héroe nocturno ── */
 .hero{position:relative;min-height:100svh;background:var(--noche);color:var(--crudo);
@@ -259,7 +262,19 @@ html.js .reveal.visible{opacity:1;transform:none}
 
 /* ── Responsive ── */
 @media (max-width:920px){
-  .grid-2{grid-template-columns:1fr;gap:40px}
+  .grid-2,.trayectoria .grid-2{grid-template-columns:1fr;gap:40px}
+  /* La tabla pasa a fichas apiladas: en pantalla angosta el scroll lateral
+     escondía las columnas Fecha y Estado. */
+  .tabla-wrap{overflow-x:visible;border-top:none}
+  table{min-width:0;display:block}
+  thead{display:none}
+  tbody,tr{display:block}
+  tr{border-top:2px solid var(--tinta);padding:16px 0}
+  td{display:flex;justify-content:space-between;gap:16px;border:none;padding:5px 0;text-align:right}
+  td::before{content:attr(data-etq);font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--gris);text-align:left;flex:0 0 auto}
+  td[data-etq="Asunto"]{flex-direction:column;text-align:left;gap:4px;padding-top:8px}
+  td[data-etq="Asunto"]::before{margin-bottom:2px}
   .reclamo{grid-template-columns:1fr}
   .reclamo-panel{min-height:460px}
   .collage{grid-template-columns:1fr 1fr;grid-template-rows:repeat(3,1fr)}

@@ -252,10 +252,13 @@
       <p class="mono correo"><a href="mailto:noller@cdeldorado.gob.ar">noller@cdeldorado.gob.ar</a></p>
       <p class="mono correo"><a href="https://www.instagram.com/nolleresteban/" rel="noopener">@nolleresteban</a></p>
     </div>
-    <form class="reveal r1" action="https://api.web3forms.com/submit" method="POST">
-      <!-- Configurar: crear access key gratuita en web3forms.com con el mail noller@cdeldorado.gob.ar -->
-      <input type="hidden" name="access_key" value="REEMPLAZAR_ACCESS_KEY">
-      <input type="hidden" name="subject" value="Nuevo mensaje desde estebannoller.com">
+    <!-- Mientras no haya Access Key de Web3Forms, el formulario abre el correo del
+         visitante con el mensaje ya escrito (ver js/sitio.js). Para activar el envío
+         directo: poner la clave en data-access-key y listo, el fallback se desactiva solo. -->
+    <form class="reveal r1" id="formContacto" action="https://api.web3forms.com/submit"
+          method="POST" data-access-key="">
+      <input type="hidden" name="access_key" value="">
+      <input type="hidden" name="subject" value="Nuevo mensaje desde estebannoller.com.ar">
       <input type="checkbox" name="botcheck" class="visualmente-oculto" tabindex="-1" aria-hidden="true">
       <div class="campo">
         <label for="nombre">Nombre</label>
@@ -270,6 +273,7 @@
         <textarea id="mensaje" name="message" rows="5" required></textarea>
       </div>
       <button class="btn-violeta" type="submit">Enviar mensaje</button>
+      <p class="aviso-form" id="avisoForm" role="status"></p>
     </form>
   </div>
 </section>

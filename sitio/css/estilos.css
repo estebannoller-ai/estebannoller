@@ -179,6 +179,7 @@ td.mono{font-size:13px;color:var(--violeta-osc);font-weight:500;white-space:nowr
 .campo input,.campo textarea{background:#1D1922;border:1px solid #3A3344;color:var(--crudo);
   padding:14px;font-family:var(--sans);font-size:15.5px}
 .campo input:focus,.campo textarea:focus{border-color:var(--violeta);outline:2px solid var(--violeta)}
+.aviso-form{margin-top:14px;font-size:14px;color:#CBB7F2;min-height:1.2em}
 
 /* ── Pie ── */
 footer{background:var(--noche);color:#B9B2A6;border-top:1px solid #2A2433}

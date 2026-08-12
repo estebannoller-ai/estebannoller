@@ -22,6 +22,24 @@ menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
   document.body.style.overflow = '';
 }));
 
+// Contacto: si todavía no hay Access Key, el formulario abre el correo del visitante
+// con el mensaje ya redactado, así ningún mensaje se pierde en silencio.
+const form = document.getElementById('formContacto');
+if (form && !form.dataset.accessKey) {
+  const aviso = document.getElementById('avisoForm');
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const nombre = form.name.value.trim();
+    const email = form.email.value.trim();
+    const mensaje = form.message.value.trim();
+    const cuerpo = `${mensaje}\n\n—\n${nombre}\n${email}`;
+    aviso.textContent = 'Abriendo tu correo con el mensaje listo para enviar…';
+    window.location.href = 'mailto:noller@cdeldorado.gob.ar'
+      + '?subject=' + encodeURIComponent(`Mensaje de ${nombre} desde la web`)
+      + '&body=' + encodeURIComponent(cuerpo);
+  });
+}
+
 // Revelado al entrar en pantalla
 const io = new IntersectionObserver(entradas => {
   entradas.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });

@@ -110,6 +110,10 @@ h2 i{font-weight:400;color:var(--violeta)}
 h3{font-family:var(--serif);font-weight:600;font-size:23px}
 
 .trayectoria{padding:110px 0}
+/* El título va a todo el ancho para que entre en dos líneas sin achicar la letra */
+.tray-head{margin-bottom:44px}
+.tray-head h2{text-wrap:pretty}
+.trayectoria .texto p:first-child{margin-top:0}
 .trayectoria figure img{border:1px solid var(--linea)}
 .trayectoria figcaption{font-family:var(--mono);font-size:12px;color:var(--gris);margin-top:10px}
 .trayectoria .texto p{margin-top:18px;color:#3A342C}

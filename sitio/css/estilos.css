@@ -138,12 +138,16 @@ h3{font-family:var(--serif);font-weight:600;font-size:23px}
 .eje p{color:#3A342C;margin-top:6px;max-width:68ch}
 
 /* ── Reclamo ── */
-.reclamo{background:var(--violeta);color:var(--crudo);display:grid;grid-template-columns:1.15fr 1fr;overflow:hidden}
-.reclamo-txt{padding:clamp(40px,6vw,90px)}
+/* El collage manda: se lleva la mitad mayor y el texto se centra a su lado */
+.reclamo{background:var(--violeta);color:var(--crudo);display:grid;
+  grid-template-columns:minmax(320px,.85fr) 1.15fr;align-items:stretch;overflow:hidden}
+.reclamo-txt{display:flex;flex-direction:column;justify-content:center;
+  padding:clamp(40px,5vw,72px);max-width:620px;margin-left:auto}
 .reclamo-txt h2{color:#fff;font-size:clamp(21px,2.4vw,30px);font-weight:600;line-height:1.2;opacity:.9}
 .reclamo-txt .remate{display:block;margin-top:.5em;font-size:clamp(32px,4.2vw,54px);font-weight:900;
   line-height:1.02;opacity:1;letter-spacing:-.015em;color:var(--senal)}
-.reclamo-txt p{margin-top:18px;opacity:.92;max-width:50ch}
+.reclamo-txt p{margin-top:18px;opacity:.92;max-width:46ch}
+.reclamo-txt .btn-crudo{align-self:flex-start}
 .reclamo-txt strong{border-bottom:2px solid var(--crudo)}
 /* Panel: collage de fotos reales + cinta de obra + faja */
 .reclamo-panel{position:relative;min-height:520px;display:flex;flex-direction:column;

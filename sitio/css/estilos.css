@@ -147,15 +147,6 @@ td.mono{font-size:13px;color:var(--violeta-osc);font-weight:500;white-space:nowr
 .nota h3{font-size:21px;line-height:1.25}
 .nota p{color:#3A342C;font-size:15px;margin-top:8px}
 
-/* ── Galería ── */
-.galeria{padding:100px 0 110px}
-.gal-head{margin-bottom:44px}
-/* Mosaico: fotos completas, sin recorte */
-.gal-masonry{columns:4;column-gap:14px}
-.gal-masonry img{width:100%;height:auto;margin-bottom:14px;break-inside:avoid;
-  background:var(--arena);transition:opacity .2s}
-.gal-masonry img:hover{opacity:.88}
-
 /* ── Instagram ── */
 .instagram{padding:0 0 100px}
 .ig-head{margin-bottom:36px}
@@ -206,8 +197,6 @@ html.js .reveal.visible{opacity:1;transform:none}
   .notas{grid-template-columns:1fr;max-width:560px}
   .grid-ig{grid-template-columns:1fr;gap:32px}
   .instagram{padding:0 0 76px}
-  .gal-masonry{columns:2;column-gap:10px}
-  .gal-masonry img{margin-bottom:10px}
   .hero-foto img{width:100vw;opacity:.38;
     -webkit-mask-image:linear-gradient(0deg,transparent 0,#000 40%);
     mask-image:linear-gradient(0deg,transparent 0,#000 40%)}
@@ -218,5 +207,4 @@ html.js .reveal.visible{opacity:1;transform:none}
   .hamburguesa{display:block;position:relative;z-index:60}
   .trayectoria,.ejes,.rendicion,.contacto{padding:76px 0}
   .actividad{padding:0 0 76px}
-  .galeria{padding:70px 0 76px}
 }

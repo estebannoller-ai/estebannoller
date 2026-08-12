@@ -173,17 +173,19 @@ h3{font-family:var(--serif);font-weight:600;font-size:23px}
 /* La foto nocturna necesita más luz para leerse */
 .c3 img{filter:grayscale(.25) brightness(2.6) contrast(1.25);object-position:center 22%}
 .c3:hover img{filter:grayscale(0) brightness(3.4) contrast(1.2) saturate(1.15)}
-/* Velo para que la faja se lea sobre las fotos */
-.reclamo-panel::before{content:"";position:absolute;inset:0;background:rgba(19,16,23,.5);z-index:1}
-.cinta{position:relative;z-index:2;width:130%;background:var(--crudo);color:var(--violeta-osc);
-  overflow:hidden;font-family:var(--mono);font-size:13px;font-weight:600;letter-spacing:.22em;
-  padding:9px 0;white-space:nowrap;box-shadow:0 6px 26px rgba(0,0,0,.5)}
+/* Velo para que la faja se lea sobre las fotos. Sin pointer-events, si no
+   se traga el hover de las fotos que tiene debajo. */
+.reclamo-panel::before{content:"";position:absolute;inset:0;background:rgba(19,16,23,.5);
+  z-index:1;pointer-events:none}
+.cinta{position:relative;z-index:2;pointer-events:none;width:130%;background:var(--crudo);
+  color:var(--violeta-osc);overflow:hidden;font-family:var(--mono);font-size:13px;font-weight:600;
+  letter-spacing:.22em;padding:9px 0;white-space:nowrap;box-shadow:0 6px 26px rgba(0,0,0,.5)}
 .cinta-1{transform:rotate(-4deg)}
 .cinta-2{transform:rotate(4deg)}
 .cinta span{display:inline-block;animation:correr 26s linear infinite}
 .cinta-2 span{animation-direction:reverse}
 @keyframes correr{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.faja{position:relative;z-index:2;padding:40px 24px;text-align:center}
+.faja{position:relative;z-index:2;pointer-events:none;padding:40px 24px;text-align:center}
 .faja-chico{font-family:var(--mono);font-size:12px;letter-spacing:.24em;text-transform:uppercase;
   color:#CBB7F2;margin-bottom:12px;text-shadow:0 2px 12px rgba(0,0,0,.8)}
 .faja-grande{font-family:var(--serif);font-weight:900;font-size:clamp(30px,3.9vw,50px);

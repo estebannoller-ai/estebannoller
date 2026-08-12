@@ -47,7 +47,7 @@ h1,h2,h3{text-wrap:balance}
   padding:18px 5vw;z-index:50;transition:background .25s,box-shadow .25s}
 .nav .marca{font-family:var(--serif);font-weight:900;font-size:20px;color:var(--crudo);text-decoration:none}
 .nav .marca span{color:var(--violeta)}
-.nav nav{display:flex;gap:26px}
+.nav nav{display:flex;gap:26px;align-items:center}
 .nav nav a{color:var(--crudo);text-decoration:none;font-size:14px;font-weight:500}
 .nav nav a:hover{text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:2px;
   text-decoration-color:var(--violeta)}

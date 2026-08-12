@@ -22,22 +22,40 @@ menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
   document.body.style.overflow = '';
 }));
 
-// Contacto: si todavía no hay Access Key, el formulario abre el correo del visitante
-// con el mensaje ya redactado, así ningún mensaje se pierde en silencio.
+// Contacto. Con Access Key el mensaje se envía sin salir de la página; sin ella,
+// se abre el correo del visitante ya redactado para que nada se pierda en silencio.
 const form = document.getElementById('formContacto');
-if (form && !form.dataset.accessKey) {
+if (form) {
   const aviso = document.getElementById('avisoForm');
-  form.addEventListener('submit', e => {
+  const boton = form.querySelector('button[type="submit"]');
+
+  form.addEventListener('submit', async e => {
     e.preventDefault();
     const nombre = form.name.value.trim();
     const email = form.email.value.trim();
     const mensaje = form.message.value.trim();
-    const cuerpo = `${mensaje}\n\n—\n${nombre}\n${email}`;
-    aviso.textContent = 'Abriendo tu correo con el mensaje listo para enviar…';
-    window.location.href = 'mailto:noller@cdeldorado.gob.ar'
-      + '?subject=' + encodeURIComponent(`Mensaje de ${nombre} desde la web`)
-      + '&body=' + encodeURIComponent(cuerpo);
+
+    if (!form.dataset.accessKey) {
+      aviso.textContent = 'Abriendo tu correo con el mensaje listo para enviar…';
+      window.location.href = 'mailto:noller@cdeldorado.gob.ar'
+        + '?subject=' + encodeURIComponent(`Mensaje de ${nombre} desde la web`)
+        + '&body=' + encodeURIComponent(`${mensaje}\n\n—\n${nombre}\n${email}`);
+      return;
+    }
+
+    // Envío nativo: Web3Forms rechaza el envío por AJAX desde otros orígenes (CORS),
+    // así que se postea el formulario y vuelve al sitio con ?enviado=1.
+    boton.disabled = true;
+    aviso.textContent = 'Enviando…';
+    form.submit();
   });
+
+  // Confirmación al volver de Web3Forms
+  if (new URLSearchParams(location.search).has('enviado')) {
+    aviso.textContent = '¡Listo! Recibí tu mensaje y te voy a responder.';
+    document.getElementById('contacto').scrollIntoView();
+    history.replaceState(null, '', location.pathname + '#contacto');
+  }
 }
 
 // Revelado al entrar en pantalla
